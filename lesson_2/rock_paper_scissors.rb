@@ -20,10 +20,9 @@ end
 
 def winner?(player, computer)
   if win?(player, computer)
-    return 'player_wins'
+    'player_wins'
   elsif win?(computer, player)
-    return 'computer_wins'
-  else
+    'computer_wins'
   end
 end
 
@@ -74,7 +73,6 @@ loop do
     player_score += 1
   elsif winner?(choice, computer_choice) == 'computer_wins'
     computer_score += 1
-  else
   end
 
   display_results(winner?(choice, computer_choice))
@@ -86,7 +84,6 @@ loop do
   puts "***"
 
   break unless player_score < 5 && computer_score < 5
-
 end
 
 if player_score > computer_score
