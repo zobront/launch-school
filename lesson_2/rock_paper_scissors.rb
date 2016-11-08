@@ -18,6 +18,20 @@ def win?(first, second)
     (first == 'lizard' && second == 'paper')
 end
 
+def longformify(word)
+  if word == 'r'
+    word = 'rock'
+  elsif word == 'p'
+    word = 'paper'
+  elsif word == 'x'
+    word = 'scissors'
+  elsif word == 'l'
+    word = 'lizard'
+  elsif word == 's'
+    word = 'spock'
+  end
+end
+
 def winner?(player, computer)
   if win?(player, computer)
     'player_wins'
@@ -46,17 +60,7 @@ loop do
     choice = gets.chomp
 
     if SHORT_FORMS.include?(choice.downcase)
-      if choice == 'r'
-        choice = 'rock'
-      elsif choice == 'p'
-        choice = 'paper'
-      elsif choice == 'x'
-        choice = 'scissors'
-      elsif choice == 'l'
-        choice = 'lizard'
-      elsif choice == 's'
-        choice = 'spock'
-      end
+      longformify(choice.downcase)
       break
     elsif FULL_WORDS.include?(choice.downcase)
       break
