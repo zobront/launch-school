@@ -5,30 +5,29 @@ def prompt(message)
   puts "=> #{message}"
 end
 
+WINNING_CONDITION = {
+  'rock' => %w(scissors lizard),
+  'paper' => %w(spock rock),
+  'scissors' => %w(lizard paper),
+  'spock' => %w(scissors rock),
+  'lizard' => %w(spock paper)
+}
+
 def win?(first, second)
-  (first == 'rock' && second == 'scissors') ||
-    (first == 'rock' && second == 'lizard') ||
-    (first == 'paper' && second == 'spock') ||
-    (first == 'paper' && second == 'rock') ||
-    (first == 'scissors' && second == 'lizard') ||
-    (first == 'scissors' && second == 'paper') ||
-    (first == 'spock' && second == 'scissors') ||
-    (first == 'spock' && second == 'rock') ||
-    (first == 'lizard' && second == 'spock') ||
-    (first == 'lizard' && second == 'paper')
+  WINNING_CONDITION[first].include?(second)
 end
 
 def longformify(word)
   if word == 'r'
-    word = 'rock'
+    'rock'
   elsif word == 'p'
-    word = 'paper'
+    'paper'
   elsif word == 'x'
-    word = 'scissors'
+    'scissors'
   elsif word == 'l'
-    word = 'lizard'
+    'lizard'
   elsif word == 's'
-    word = 'spock'
+    'spock'
   end
 end
 
@@ -60,7 +59,7 @@ loop do
     choice = gets.chomp
 
     if SHORT_FORMS.include?(choice.downcase)
-      longformify(choice.downcase)
+      choice = longformify(choice.downcase)
       break
     elsif FULL_WORDS.include?(choice.downcase)
       break
