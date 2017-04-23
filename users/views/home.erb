@@ -1,0 +1,15 @@
+<div id="main">
+  <div class="header">
+    <h1>user database</h1>
+  </div>
+
+  <div class="content">
+    <ul>
+      <% @users.each do |user| %>
+        <li>
+          <a href="/<%= user[0] %>"><%= user[0] %></a>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>

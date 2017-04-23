@@ -1,0 +1,13 @@
+<div id="main">
+  <div class="header">
+    <h1><%= @name %>'s page</h1>
+  </div>
+
+  <div class="content">
+    <p>email: <%= @email %></p>
+    <p>interests: <%= @interests.join(", ") %>
+    <p>other users: <% @users.each do |user| %>
+        <a href="/<%= user[0] %>"><%= user[0] unless user[0] == @name %></a>
+    <% end %>
+  </div>
+</div>
